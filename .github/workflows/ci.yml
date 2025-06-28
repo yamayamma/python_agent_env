@@ -23,7 +23,7 @@ jobs:
         run: uv pip install ruff black
       - name: Lint
         run: |
-          uv run ruff .
+          uv run ruff check .
           uv run black --check .
       - name: Test
         run: uv run pytest -q
