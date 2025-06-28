@@ -1,0 +1,55 @@
+{
+  "name": "Python 3.12 + Claude Code",
+  "image": "mcr.microsoft.com/devcontainers/python:1-3.12-bullseye",
+
+  "features": {
+    "ghcr.io/anthropics/devcontainer-features/claude-code:latest": {}
+  },
+
+  "containerUser": "vscode",
+
+  "remoteEnv": {
+    // --- Python/uv 共通 ---
+    "UV_SYSTEM_PYTHON": "1",
+    "PIP_BREAK_SYSTEM_PACKAGES": "1",
+    "PYTHONNOUSERSITE": "1",
+    "UV_LINK_MODE": "copy",
+    // --- Claude Code ---
+    "CLAUDE_CONFIG_DIR": "/home/vscode/.claude"
+  },
+
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "python.terminal.activateEnvironment": false
+      },
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "RooVeterinaryInc.roo-cline",
+        "ms-vscode.vscode-docker"
+      ]
+    }
+  },
+
+  // --- 作業ディレクトリ ---
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+  "workspaceFolder": "/workspace",
+
+  // --- 永続化ボリューム ---
+  "mounts": [
+    // 1. pip/uv の wheel キャッシュ（速度用）
+    "source=global-cache,target=/home/vscode/.cache/,type=volume",
+
+    // 2. Claude Code の履歴
+    "source=claude-data,target=/home/vscode/.claude,type=volume",
+
+    // 3. **site-packages**（実体の永続化）
+    "source=python-packages,target=/usr/local/lib/python3.12/site-packages,type=volume",
+    "source=python-bin,target=/usr/local/bin,type=volume"
+  ],
+
+  // --- 初期セットアップ ---
+  "postCreateCommand": "sudo install -d -o vscode -g vscode -m 755 /usr/local/lib/python3.12 && sudo install -d -o vscode -g vscode -m 755 /usr/local/bin && sudo install -d -o vscode -g vscode -m 755 /home/vscode/.cache && pip install --upgrade uv && if [ -f pyproject.toml ]; then uv sync --system; fi && echo 'Setup complete 🎉 (packages now survive rebuilds)'"
+}

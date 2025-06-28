@@ -1,0 +1,7 @@
+[project]
+name = "python_agent_env"
+version = "0.1.0"
+description = "python_agent_env"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
