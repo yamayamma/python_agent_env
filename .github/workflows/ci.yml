@@ -15,6 +15,7 @@ jobs:
           python-version: '3.12'
       - name: Install uv
         run: pip install uv
+
       - name: Set up environment
         run: |
           uv venv
