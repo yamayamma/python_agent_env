@@ -6,14 +6,23 @@ Python開発のAIエージェント環境の雛形です。参考として [mode
 ## 使い方
 
 ```bash
-uv pip install -e .[dev]
-ruff .
-black --check .
-pytest -q
+
+uv venv
+uv sync --extra dev
+uv run --frozen ruff check .
+uv run --frozen black --check .
+uv run --frozen pyright
+PYTEST_DISABLE_PLUGIN_AUTOLOAD="" uv run --frozen pytest -q
 ```
 
 CLI を試すには次のように実行します。
 
 ```bash
 python-agent-env your-name
+```
+
+コミット前の検証には次を実行します。
+
+```bash
+uv run pre-commit run --all-files
 ```

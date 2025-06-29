@@ -12,6 +12,8 @@ dependencies = [
 dev = [
     "ruff>=0.4.3",
     "black>=24.4.0",
+    "pre-commit>=3.7.0",
+    "pyright>=1.1.360",
 ]
 
 [project.scripts]
@@ -28,4 +30,6 @@ target-version = ["py312"]
 [tool.ruff]
 line-length = 88
 target-version = "py312"
+
+[tool.ruff.lint]
 select = ["E", "F", "I"]
