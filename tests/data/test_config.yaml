@@ -1,0 +1,32 @@
+# テスト用の設定
+app:
+  name: python_agent_env_test
+  version: 0.1.0
+  environment: development
+  debug: true
+  log_level: DEBUG
+
+service:
+  host: localhost
+  port: 8001
+  timeout: 5
+
+database:
+  host: localhost
+  port: 5432
+  name: test_db
+  user: test_user
+  password: test_password
+  pool_size: 3
+  max_overflow: 5
+  timeout: 10
+
+api:
+  key: test-api-key
+  rate_limit: 50
+  timeout: 3
+
+cache:
+  enabled: true
+  ttl: 1800
+  max_size: 500
