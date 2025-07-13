@@ -205,6 +205,8 @@ name = "python-agent-env"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
+    { name = "pre-commit" },
+    { name = "pyright" },
     { name = "pytest" },
     { name = "ruff" },
 ]
@@ -212,16 +214,14 @@ dependencies = [
 [package.optional-dependencies]
 dev = [
     { name = "black" },
-    { name = "pre-commit" },
-    { name = "pyright" },
     { name = "ruff" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "black", marker = "extra == 'dev'", specifier = ">=24.4.0" },
-    { name = "pre-commit", marker = "extra == 'dev'", specifier = ">=3.7.0" },
-    { name = "pyright", marker = "extra == 'dev'", specifier = ">=1.1.360" },
+    { name = "pre-commit", specifier = ">=3.7.0" },
+    { name = "pyright", specifier = ">=1.1.360" },
     { name = "pytest", specifier = ">=7.0" },
     { name = "ruff", specifier = ">=0.12.1" },
     { name = "ruff", marker = "extra == 'dev'", specifier = ">=0.4.3" },
