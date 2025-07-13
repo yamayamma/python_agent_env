@@ -128,8 +128,13 @@ celerybeat.pid
 *.sage.py
 
 # Environments
+# Ignore the .env file to keep sensitive data like API keys out of version control.
+# Use .env.example as a template.
 .env
 .venv
+
+# Local .env file
+.env
 env/
 venv/
 ENV/

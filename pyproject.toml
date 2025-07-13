@@ -9,6 +9,7 @@ dependencies = [
     "ruff>=0.12.1",
     "pre-commit>=3.7.0",
     "pyright>=1.1.360",
+    "python-dotenv>=0.21.0",
 ]
 
 [project.optional-dependencies]

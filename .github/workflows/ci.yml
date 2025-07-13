@@ -27,3 +27,5 @@ jobs:
           uv run --frozen pyright
       - name: Test
         run: PYTEST_DISABLE_PLUGIN_AUTOLOAD="" uv run --frozen pytest -q
+      - name: Audit dependencies
+        run: uv run --frozen pip-audit
