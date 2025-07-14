@@ -1,0 +1,8 @@
+{  
+  "mcpServers": {  
+    "deepwiki": {  
+      "httpUrl": "https://mcp.deepwiki.com/mcp",  
+      "timeout": 5000  
+    }  
+  }  
+}
