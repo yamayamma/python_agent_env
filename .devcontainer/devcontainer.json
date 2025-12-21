@@ -58,10 +58,10 @@
     // npm global install path
     "NPM_CONFIG_PREFIX": "/home/vscode/.npm-global"
     
-    // Uncomment the API keys you need:
-    // "ANTHROPIC_API_KEY": "${localEnv:ANTHROPIC_API_KEY}",
-    // "GOOGLE_API_KEY": "${localEnv:GOOGLE_API_KEY}",
-    // "OPENAI_API_KEY": "${localEnv:OPENAI_API_KEY}"
+    // Uncomment and set the API keys you need:
+    // ,"ANTHROPIC_API_KEY": "${localEnv:ANTHROPIC_API_KEY}"
+    // ,"GOOGLE_API_KEY": "${localEnv:GOOGLE_API_KEY}"
+    // ,"OPENAI_API_KEY": "${localEnv:OPENAI_API_KEY}"
   },
   
   "remoteEnv": {
