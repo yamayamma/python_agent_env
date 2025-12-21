@@ -56,12 +56,16 @@
   // ============================================
   "containerEnv": {
     // npm global install path
-    "NPM_CONFIG_PREFIX": "/home/vscode/.npm-global",
-    "PATH": "${containerEnv:PATH}:/home/vscode/.npm-global/bin",
+    "NPM_CONFIG_PREFIX": "/home/vscode/.npm-global"
     
     // "ANTHROPIC_API_KEY": "${localEnv:ANTHROPIC_API_KEY}",
     // "GOOGLE_API_KEY": "${localEnv:GOOGLE_API_KEY}",
     // "OPENAI_API_KEY": "${localEnv:OPENAI_API_KEY}"
+  },
+  
+  "remoteEnv": {
+    // Add npm global bin to PATH
+    "PATH": "${containerEnv:PATH}${containerEnv:PATH+:}/home/vscode/.npm-global/bin"
   },
 
   // ============================================

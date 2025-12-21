@@ -30,5 +30,9 @@ RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | d
     && apt-get update && apt-get install -y gh \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
+# Create directories for vscode user with proper ownership
+RUN mkdir -p /home/vscode/.cache /home/vscode/.claude /home/vscode/.config/github-copilot /home/vscode/.npm-global \
+    && chown -R vscode:vscode /home/vscode/.cache /home/vscode/.claude /home/vscode/.config /home/vscode/.npm-global
+
 # Verify installations
 RUN python --version && node --version && npm --version && gh --version
