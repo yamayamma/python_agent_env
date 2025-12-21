@@ -1,11 +1,11 @@
 FROM mcr.microsoft.com/devcontainers/base:ubuntu-24.04
 
-# Install essential utilities first
+# Install essential utilities
 RUN apt-get update && apt-get install -y \
-    coreutils \
     curl \
     ca-certificates \
     gnupg \
+    procps \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Install Python 3.13
