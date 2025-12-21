@@ -1,7 +1,8 @@
 FROM mcr.microsoft.com/devcontainers/base:ubuntu-24.04
 
-# Install essential utilities
+# Install essential utilities including coreutils for sleep command
 RUN apt-get update && apt-get install -y \
+    coreutils \
     curl \
     ca-certificates \
     gnupg \
