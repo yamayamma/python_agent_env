@@ -65,7 +65,7 @@
   
   "remoteEnv": {
     // Add npm global bin to PATH
-    "PATH": "${remoteEnv:PATH}${remoteEnv:PATH+:}/home/vscode/.npm-global/bin"
+    "PATH": "/home/vscode/.npm-global/bin:${remoteEnv:PATH}"
   },
 
   // ============================================
